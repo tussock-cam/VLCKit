@@ -43,6 +43,7 @@ args="--enable-macosx-eyetv $args"
 args="--disable-macosx-qtkit $args"
 args="--disable-quicktime $args"
 args="--enable-macosx-vout $args"
+args="--enable-sout $args"
 
 # disabled stuff
 args="--disable-growl $args"
@@ -58,6 +59,7 @@ args="--disable-sdl $args"
 args="--disable-sdl-image $args"
 args="--disable-samplerate $args"
 args="--disable-vda $args"
+args="--disable-x265 $args"
 
 if test "x$SDKROOT" != "x"
 then
