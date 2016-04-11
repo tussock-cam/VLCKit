@@ -69,9 +69,14 @@
 - (BOOL)play
 {
     NSString * libvlcArgs;
-    if( self.drawable )
-        libvlcArgs = [NSString stringWithFormat:@"#duplicate{dst=std{%@}, dst=display}", [_streamOutput representedLibVLCOptions]];
-    else
+    if( self.drawable ) {
+        NSString* args = [_streamOutput representedLibVLCOptions];
+        if (args.length > 0 && [args characterAtIndex:0] == '#') {
+            args = [args substringFromIndex:1];
+        }
+        
+        libvlcArgs = [NSString stringWithFormat:@"#duplicate{dst=%@, dst=display}", args];
+    } else
         libvlcArgs = [_streamOutput representedLibVLCOptions];
     if( libvlcArgs )
     {
